@@ -23,3 +23,5 @@ Do more than chat. Share documents and files from your organization. Upload them
 **Be present**
 
 Designed thinking how the organization should be present in the employees' mobile. Share news to your employees and ask them to share them to their social networks
+
+More info: [http://commpanion.theinit.com/](http://commpanion.theinit.com/)
