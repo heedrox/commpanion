@@ -1,0 +1,15 @@
+h3 { font-size: 2.2em; }
+hr { border: 1pt outset lightgray; color:lightgray;  }
+
+
+#chatDetailList .realname { font-size:0.8em; display:block; margin-bottom:6px;}
+#chatDetailList .realname .name { color:#690; }
+#chatDetailList .realname .time { color:#888; }
+
+#chatDetailList li.othermsg  { padding: 10px 10px 10px 5px !important; margin: 5px 0px 0px -5px  !important; border: solid 1px #ccc; background-color:rgba(255,255,255,0.85) !important; }
+#chatDetailList li.minemsg { padding: 10px 10px 10px 5px !important; margin: 5px -5px 0px 0px  !important; border: solid 1px #ccc; background-color:rgba(238,255,220,0.85) !important; }
+#chatDetailList { margin: 0px !important; background: inherit !important;}
+
+#chatDetailList .icon { font-size:0.8em; float:right; color:#aaaaaa;}
+#chatList .list li a.unread { font-weight:bold; }
+

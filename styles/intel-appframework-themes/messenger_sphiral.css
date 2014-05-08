@@ -1,0 +1,391 @@
+/** messenger INTEL APP FRAMEWORK theme */
+
+/** Blue color color:rgba(82,155,234,255); */
+
+/* border rgba(158,158,158,255) */
+
+#afui.messenger {
+     font-family:'HelveticaNeue', 'Helvetica Neue',Helvetica, Arial, sans-serif;
+}
+
+#afui.messenger #header {
+    /*background:rgb(249,249,249);*/
+    background:#205000;
+    color:inherit;
+    color:rgba(238,238,238,255);
+    border:none;
+    border-bottom:1px solid rgba(158,158,158,255);
+}
+
+#afui.messenger #header .button {
+
+    color:rgba(238,238,238,255);
+    border-color:transparent;
+    font-size:14px;
+    font-weight:normal;
+}
+
+#afui.messenger #header h1 {
+    color:inherit;
+    text-shadow:none;
+}
+
+#afui.messenger .panel {
+    background:rgba(238,238,238,255);
+    background-image: url(bg_sup.png);
+    background-repeat:no-repeat;
+}
+#afui.messenger .panel h2 { color:inherit;}
+
+#afui.messenger #navbar {
+    background:#205000;
+    color:black;
+    border-top:1px solid rgba(158,158,158,255);
+    box-shadow:none;
+}
+
+#afui.messenger #navbar a {
+    color:rgba(96,96,96,255);
+}
+
+#afui.messenger #navbar a.pressed {
+    border-radius:0;    
+    background:transparent;
+}
+
+#afui.messenger #menubadge:after {
+    /*border-color:rgba(82,155,234,255);*/
+    border-color:rgba(238,238,238,255);
+
+}
+
+#afui.messenger .list {
+    font-weight:normal;
+    background-image:none;
+    background-color:rgba(255,255,255,0.9);
+}
+
+#afui.messenger > #menu {
+    border-right:1px solid #bbb;
+    background:rgba(238,238,238,255);
+    background-image: url(bg_sup.png);
+    background-repeat:no-repeat;
+    color:black;
+}
+
+#afui.messenger #menu .list li,#afui.messenger #menu .list .divider,#afui.messenger #menu .list li:first-child,#afui.messenger #menu .list li:last-child {
+    border-color:rgb(215,215,215);
+    font-weight:normal;
+    box-shadow:none;
+}
+
+#afui.messenger #menu .list .divider {
+    background:rgba(238,238,238,255);
+    color:inherit;
+    font-size: 1em;
+    border-bottom:1px solid rgb(215,215,215);
+    color:black;
+}
+
+#afui.messenger #menu .list a {
+    color:black;
+}
+
+#afui.messenger #menu .list {
+    background:white;
+    font-weight: normal;
+    color:black;
+}
+
+#afui.messenger .list > li > a:after{
+    color:rgba(217,217,217,255);
+}
+
+#afui.messenger .button {
+    background-color:transparent;
+}
+
+#afui.messenger #backButton {
+    background:rgba(249,249,249,1);
+
+    color:rgba(238,238,238,255);
+    display: block;
+    position: absolute;
+    line-height:44px;
+    left: 25px;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    padding: 0;
+    text-shadow: none;
+    background-color: transparent;
+    border:none;
+    border-color: transparent;
+    height: 44px;
+    top:0;
+    border-radius: 0;
+    box-shadow:none;
+    margin: 0;
+    padding-left: 0;
+    text-align: center;
+    width:50px;
+    padding:0 !important;
+    margin:0 !important;
+}
+
+#afui.messenger #backButton::before {
+    z-index: -1;
+    font-size:22px;
+    position: absolute;
+    top: 10px;
+    left: -20px;
+    text-align: center;
+    border-radius: 0;
+    border: none;
+    border-color: transparent;
+    box-shadow: none;
+    -webkit-transform: none;
+    transform: none;
+    font-family: 'chevron';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    content: "\f054";
+    -webkit-transform:rotate(180deg);
+    transform:rotate(180deg);
+    background-color: transparent;
+}
+
+#afui.messenger #backButton::after {
+    content: '';
+    width:0;
+    height:0;
+    border:none;
+}
+
+
+#afui.messenger .button {
+    box-shadow:none;
+    border-radius: 1;
+    border-color:#ccc;
+    color:gray;
+    text-shadow:none;
+    background-color:white;
+}
+
+#afui.messenger .button-grouped * ,
+#afui.messenger .button-grouped >  .button:first-child,
+#afui.messenger .button-grouped.vertical * ,
+#afui.messenger .button-grouped.vertical >  .button:last-child, 
+#afui.messenger #header .button-grouped > .button {
+    border-color:rgba(238,238,238,255);
+}
+
+#afui.messenger .button-grouped > .button.pressed ,
+#afui.messenger #header .button-grouped > .button.pressed{
+    color:white;
+    background:rgba(238,238,238,255);
+}
+
+#afui.messenger .afPopup {
+    display: block;
+    border:1px solid rgba(158,158,158,255);
+    border-radius:10px;
+    padding:0;
+    text-align: center;
+    width:280px;
+    position: absolute;
+    z-index: 1000000;
+    top: 50%;
+    color:inherit;
+    background:rgba(249,249,249,1);
+    text-align:center;
+}
+
+#afui.messenger .afPopup>HEADER{
+    padding:10px 0;
+}
+
+#afui.messenger .afPopup>DIV{
+    font-size:14px;
+    padding-bottom:10px;
+}
+
+#afui.messenger .afPopup>FOOTER{
+    border-top:1px solid #aaa;
+}
+
+#afui.messenger .afPopup .button {
+    border: none;
+    width: 50%;
+    margin: 0;
+    background: transparent;
+    color:rgba(82,155,234,255);
+    padding:12px 0;
+}
+
+#afui.messenger .afPopup .button.pressed {
+    background: none;
+}
+
+#afui.messenger .button.pressed {
+    font-weight:bold;
+    background:#205000;
+    color:white;
+}
+
+#afui.messenger .afPopup a:not(:first-of-type) {
+    border-left:1px solid rgba(158,158,158,255);
+}
+
+#afui.messenger #af_actionsheet {
+    background-color:transparent;
+    color:black;
+    padding-left:10px;
+    padding-right:10px;
+    border-top: transparent 1px solid;
+    box-shadow: 0px -1px 2px rgba(0,0,0,0);
+}
+
+#afui.messenger #af_actionsheet a{
+    background-image:none;
+    text-shadow:none;
+    box-shadow:none;
+    font-weight:normal;
+    border-radius: 0;
+    border:none;
+    -webkit-box-shadow:none;
+    color:rgba(238,238,238,255);
+    background-color:white;
+    cursor:pointer;
+    border-radius:0px;
+    line-height: 40px;
+    font-size: 20px;
+    margin-bottom: 1px;
+}
+
+#afui.messenger #af_actionsheet a:first-child{
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+}
+
+#afui.messenger #af_actionsheet a:nth-last-child(2){
+    border-bottom-left-radius:5px;
+    border-bottom-right-radius:5px;
+}
+
+#afui.messenger #af_actionsheet a.cancel{
+    font-weight:bold;
+    margin: 9px 0;
+    border-radius:5px;
+}
+
+#afui.messenger #navbar a.pressed,#navbar .icon.pressed:before  {
+    color:rgba(82,155,234,255);
+}
+
+#afui.messenger .button.previous {
+    border:none;
+}
+
+#afui.messenger .button.next {
+    border:none;   
+}
+
+#afui.messenger .button.previous::after {
+    color:rgba(82,155,234,255);
+    z-index: -1;
+    font-size:22px;
+    position: absolute;
+    top: 2px;
+    left: -25px;
+    text-align: center;
+    border-radius: 0;
+    border: none;
+    border-color: transparent;
+    box-shadow: none;
+    -webkit-transform: none;
+    transform: none;
+    font-family: 'chevron';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    content: "\f054";
+    -webkit-transform:rotate(180deg);
+    transform:rotate(180deg);
+    background-color: transparent;
+}
+
+#afui.messenger .button.next::after {
+    color:rgba(82,155,234,255);
+    z-index: -1;
+    font-size:22px;
+    position: absolute;
+    top: 6px;
+    right: -25px;
+    text-align: center;
+    border-radius: 0;
+    border: none;
+    border-color: transparent;
+    box-shadow: none;
+    -webkit-transform: none;
+    transform: none;
+    font-family: 'chevron';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    content: "\f054";
+    background-color: transparent;
+}
+
+#afui.messenger .button.gray {
+    color:#999;
+    background-color:transparent;
+}
+
+#afui.messenger .button.yellow {
+    color:#F1C222;
+    background-color:transparent;
+}
+
+#afui.messenger .button.red {
+    color:#b20000;
+    background-color:transparent;
+}
+
+#afui.messenger .button.green {
+    color:#009C0C;
+    background-color:transparent;
+}
+
+#afui.messenger .button.orange {
+    color:#FF8000;
+    background-color:transparent;
+}
+
+#afui.messenger .button.black {
+    color:black;
+    background-color:transparent;
+}
+
+#afui.messenger .button.slate {
+    color:#171F28;
+    background-color:transparent;    
+}
+
+#afui.messenger .af-badge {
+    border:none;
+    box-shadow:none;
+    font-size:12px;
+}

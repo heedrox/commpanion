@@ -1,0 +1,219 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sphiral Messenger</title>
+    <meta name="description" content="Sphiral Messenger">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="images/icon.png"/>
+    <!-- endbuild -->
+
+    <link rel="stylesheet" type="text/css" href="scripts/intel-appframework/css/af.ui.css">
+    <link rel="stylesheet" type="text/css" href="scripts/intel-appframework/css/icons.css">
+    <link rel="stylesheet" type="text/css" href="styles/intel-appframework-themes/messenger.css">
+
+    <script type="application/javascript" src="scripts/fastclick/lib/fastclick.js"></script>
+    <script type="application/javascript" src="scripts/intel-appframework/appframework.min.js"></script>
+    <script type="application/javascript" src="scripts/intel-appframework/ui/appframework.ui.js"></script>
+    <style type="text/css">
+        /* Prevent copy paste for all elements except text fields */
+        *  { -webkit-user-select:none; -webkit-tap-highlight-color:rgba(255, 255, 255, 0); }
+        input, textarea  { -webkit-user-select:text; }
+    </style>
+    <!-- uncomment for  apps
+        <script type="text/javascript" charset="utf-8" src="indelxdk.js"></script>
+        -->
+    <script type="application/javascript">
+        //emulate touch events on desktop browsers only
+        if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
+            var script = document.createElement("script");
+            script.src = "scripts/intel-appframework/plugins/af.desktopBrowsers.js";
+            var tag = $("head").append(script);
+        }
+    </script>
+    <!-- CONTROLLERS ------------>
+    <script type="application/javascript" src="scripts/controllers/loginCtl.js"></script>
+    <script type="application/javascript" src="scripts/controllers/chatListCtl.js"></script>
+    <script type="application/javascript" src="scripts/controllers/chatDetailCtl.js"></script>
+    <script type="application/javascript" src="scripts/controllers/settingsCtl.js"></script>
+
+    <!-- SERVICES ---------------->
+    <script type="application/javascript" src="scripts/services/dummyRemotedata.js"></script>
+    <script type="application/javascript" src="scripts/services/storage.js"></script>
+    <script type="application/javascript" src="scripts/services/messages.js"></script>
+
+    <script type="application/javascript" src="scripts/commonUtil.js"></script>
+
+    <!--<script type="application/javascript" src="scripts/pubnub/pubnub.min.js"></script>-->
+    <script src="scripts/pubnub/pubnub.min.js"></script>
+    <script src="scripts/pubnub/pubnub-crypto.min.js"></script>
+
+    <!-- CORDOVA & ANDROID BACKGROUND SERVICE ---------------->
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="plugins/com.red_folder.phonegap.plugin.backgroundservice/www/backgroundservice.js"></script>
+    <script type="text/javascript" charset="utf-8" src="scripts/android/androidService.js"></script>
+
+    <!-- APP ------------------------->
+    <script type="application/javascript" src="scripts/app.js"></script>
+
+    <script type="text/javascript">
+        $.ui.useOSThemes=false; //This must be set before $(document).ready() triggers;
+        $.ui.autoLaunch = false; //By default, it is set to true and you're app will run right away.  We set it to false to show a splashscreen
+        $.ui.loadDefaultHash=false;
+        $.ui.loadingText='Cargando, espera...';
+        $.ui.backButtonText='Atr&aacute;s';
+
+        /* This function runs when the body is loaded.*/
+        document.addEventListener("DOMContentLoaded", init, false); //init is defined in app.js
+
+        /* This code is used for Intel native apps */
+        var onDeviceReady = function () {
+            intel.xdk.device.hideSplashScreen();
+
+        };
+        document.addEventListener("intel.xdk.device.ready", onDeviceReady, false);
+        window.addEventListener('load', function() {
+            FastClick.attach(document.body);
+        }, false);
+
+    </script>
+</head>
+<body id="afui" class="messenger">
+<!-- Add your site or application content here -->
+
+<div id="header">
+    <a id='menubadge' onclick='af.ui.toggleSideMenu()' class='menuButton'></a>
+
+</div>
+
+
+
+<div id="headerLogin">
+
+
+</div>
+
+<div id="content">
+
+    <div id="login" title="Login" class="panel" style="text-align:center" data-footer="none" data-nav="none" data-header="headerLogin">
+
+
+        <div class="logo grid" style="text-align:center">
+            <div class="col3">&nbsp;</div>
+            <div class="col3">
+                <p><img width="247" height="80" src="images/logo_sphiral.png"/></p>
+            </div>
+            <div class="col3">&nbsp;</div>
+        </div>
+        <form id="loginForm" action="" onsubmit="return false;">
+            <div class="grid">
+                <div class="col3">&nbsp;</div>
+                <div class="col3"><input type="text" name="name" id="username" placeholder="Nombre de usuario" required/></div>
+                <div class="col3">&nbsp;</div>
+            </div>
+            <div class="grid">
+                <div class="col3">&nbsp;</div>
+                <div class="col3"><input type="password" name="password" id="password" placeholder="**********" required/></div>
+                <div class="col3">&nbsp;</div>
+            </div>
+
+            <a href="#" id="loginBtn" class="button icon check white-background">&nbsp;Login</a>
+            <input type="submit" name="f" value="&nbsp;" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
+        </form>
+        <hr style="margin-top:1em;"/>
+        <p class="icon heart">&nbsp; Haz login con tu usuario de INIT, y acceder&aacute;s a conversaciones en tiempo real
+            de los grupos a los que est&aacute;s suscrito</p>
+
+    </div>
+
+
+    <div class="panel" id="chatList" selected="true" data-footer="none">
+        <header>
+            <h1>Tus Grupos</h1>
+            <a id='menubadgeList' onclick='af.ui.toggleSideMenu()' class='menuButton' style="float:left"></a>
+            <a id='menubadgeRefresh' class='button icon refresh' style="float:right"></a>
+        </header>
+
+        <div style="font-size:82pt; text-align:center; position:absolute; top:0; bottom:0; left:0; right:0;margin:auto; height:260px; width:100%;">
+            <div class="chat icon big" style="color:lightgray; text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;">
+
+            </div>
+            <p style="font-size:12pt; line-height:2em;">
+                Aqu&iacute; se mostrar&aacute;n tus grupos, cuando <br/>
+                tu dispositivo se haya actualizado con s&phi;hiral.
+                <br/>
+
+            </p>
+        </div>
+
+
+    </div>
+
+    <div id="chatDetail" title="Chat View" class="panel" data-footer="chatFooter" data-load="CommonUtilChangeTitle" data-unload="ChatDetailUnloadPanel">
+        <ul class="list" id="chatDetailList"></ul>
+    </div>
+
+
+    <div id="settings" title="Settings" class="panel" data-footer="none">
+        <ul class="list">
+            <li><a class="icon lamp" onclick="navigator.app.loadUrl('http://sphiral.com', {openExternal : true});" href="#">Conoce s&phi;hiral</a></li>
+            <li><a class="icon close" id="settingsClose" href="#">Desvincular usuario de dispositivo</a></li>
+
+        </ul>
+    </div>
+
+
+</div>
+
+<nav id="sidenav">
+    <ul class="list">
+        <li class="divider showinChat" style="display:none">Opciones del grupo</li>
+        <li style="display:none" class="showinChat">
+            <a class="icon paper" id="addFileMenu" >Adjuntar documento</a>
+        </li>
+        <li style="display:none" class="showinChat">
+            <a class="icon camera" id="addPictureMenu" >Adjuntar imagen</a>
+        </li>
+
+        <li style="display:none" class="showinChat">
+            <a class="icon trash" id="emptyChatMenu" >Vaciar chat</a>
+        </li>
+        <li class="divider">Opciones generales</li>
+        <li>
+            <a class="icon chat" href="#chatList">Ver tus grupos</a>
+        </li>
+        <li>
+            <a class="icon settings " href="#settings">Preferencias</a>
+        </li>
+        <li class="divider debug">Debug</li>
+        <li>
+            <a class="icon debug" href="#" onclick="AndroidService.getStatus(); return false">Get status</a>
+        </li>
+
+    </ul>
+</nav>
+
+<footer id="chatFooter">
+    <div style="width:100%; overflow:hidden">
+        <div style="width:90%; float:left;">
+            <input id="chatMessageContent" type="text" name="msg" style="margin-top:3px !important"/>
+        </div>
+        <div style="width:10%; float:left; text-align:center">
+            <a id="sendChatMessageBtn" class="icon check sendbutton"></a>
+        </div>
+    </div>
+</footer>
+<div id=pubnub ssl=on></div>
+</body>
+</html>
